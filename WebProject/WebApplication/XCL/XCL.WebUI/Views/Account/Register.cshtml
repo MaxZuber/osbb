@@ -1,0 +1,48 @@
+﻿@model XCL.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+<div ng-controller="registerController as rc">
+    <form novalidate name="registerForm" action=@Url.Action("Register", "Account") method="post">
+
+        @if (Model.Status == false)
+        {
+            <div class="col-xs-12">
+                @Html.ValidationMessage("")
+            </div>
+        }
+        <div class="col-xs-12">
+            <div class="form-group">
+                <div>
+                    <input type="text" name="Email" class="form-control" placeholder = "Емейл" ng-model="rc.email" required ng-minlength="3" ng-maxlength="32" pattern="^([a-zA-Z0-9_\-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,15}|[0-9]{1,3})(\]?)$"/>
+                </div>
+                <div>@Html.ValidationMessageFor(x => x.Email)</div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="form-group">
+                <div>
+                    <input type="password" name="Password" class="form-control" placeholder = "Пароль" ng-model="rc.password" required ng-minlength="3" ng-maxlength="32"/>
+                </div>
+                <div>@Html.ValidationMessageFor(x => x.Password)</div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="form-group">
+                <input type="password" name="ConfirmPassword" class="form-control" placeholder="Підтвердіть пароль" nx-equal-ex="rc.password" ng-model="rc.confirmPassword" required  ng-minlength="3" ng-maxlength="32"/>
+                <div>
+                    <span class="error-danger" ng-show="registerForm.ConfirmPassword.$error.nxEqualEx">Passwords didn't match</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-default" ng-disabled="!registerForm.$valid">Зареєструватись</button>
+        </div>
+    </form> 
+</div>

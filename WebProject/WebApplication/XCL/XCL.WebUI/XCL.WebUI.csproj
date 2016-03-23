@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34FF0DE2-46CE-4F87-8F5B-D5EB062F118B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XCL.WebUI</RootNamespace>
+    <AssemblyName>XCL.WebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Mvc4, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc4.1.5.0.0\lib\net45\Unity.Mvc4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Assets\dist\app.js" />
+    <Content Include="Assets\dist\images\favicon.ico" />
+    <Content Include="Assets\dist\images\nx.jpg" />
+    <Content Include="Assets\dist\images\ny.jpg" />
+    <Content Include="Assets\dist\images\nz.jpg" />
+    <Content Include="Assets\dist\images\px.jpg" />
+    <Content Include="Assets\dist\images\py.jpg" />
+    <Content Include="Assets\dist\images\pz.jpg" />
+    <Content Include="Assets\dist\index.html" />
+    <Content Include="Assets\dist\style.css" />
+    <Content Include="Assets\libs\three\build\three.js" />
+    <Content Include="Assets\libs\three\build\three.min.js" />
+    <Content Include="Assets\libs\three\src\animation\AnimationClip.js" />
+    <Content Include="Assets\libs\three\src\animation\AnimationMixer.js" />
+    <Content Include="Assets\libs\three\src\animation\AnimationObjectGroup.js" />
+    <Content Include="Assets\libs\three\src\animation\AnimationUtils.js" />
+    <Content Include="Assets\libs\three\src\animation\KeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\PropertyBinding.js" />
+    <Content Include="Assets\libs\three\src\animation\PropertyMixer.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\BooleanKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\ColorKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\NumberKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\QuaternionKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\StringKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\animation\tracks\VectorKeyframeTrack.js" />
+    <Content Include="Assets\libs\three\src\audio\Audio.js" />
+    <Content Include="Assets\libs\three\src\audio\AudioAnalyser.js" />
+    <Content Include="Assets\libs\three\src\audio\AudioBuffer.js" />
+    <Content Include="Assets\libs\three\src\audio\AudioListener.js" />
+    <Content Include="Assets\libs\three\src\audio\PositionalAudio.js" />
+    <Content Include="Assets\libs\three\src\cameras\Camera.js" />
+    <Content Include="Assets\libs\three\src\cameras\CubeCamera.js" />
+    <Content Include="Assets\libs\three\src\cameras\OrthographicCamera.js" />
+    <Content Include="Assets\libs\three\src\cameras\PerspectiveCamera.js" />
+    <Content Include="Assets\libs\three\src\cameras\StereoCamera.js" />
+    <Content Include="Assets\libs\three\src\core\BufferAttribute.js" />
+    <Content Include="Assets\libs\three\src\core\BufferGeometry.js" />
+    <Content Include="Assets\libs\three\src\core\Clock.js" />
+    <Content Include="Assets\libs\three\src\core\DirectGeometry.js" />
+    <Content Include="Assets\libs\three\src\core\EventDispatcher.js" />
+    <Content Include="Assets\libs\three\src\core\Face3.js" />
+    <Content Include="Assets\libs\three\src\core\Geometry.js" />
+    <Content Include="Assets\libs\three\src\core\InstancedBufferAttribute.js" />
+    <Content Include="Assets\libs\three\src\core\InstancedBufferGeometry.js" />
+    <Content Include="Assets\libs\three\src\core\InstancedInterleavedBuffer.js" />
+    <Content Include="Assets\libs\three\src\core\InterleavedBuffer.js" />
+    <Content Include="Assets\libs\three\src\core\InterleavedBufferAttribute.js" />
+    <Content Include="Assets\libs\three\src\core\Layers.js" />
+    <Content Include="Assets\libs\three\src\core\Object3D.js" />
+    <Content Include="Assets\libs\three\src\core\Raycaster.js" />
+    <Content Include="Assets\libs\three\src\core\Uniform.js" />
+    <Content Include="Assets\libs\three\src\extras\core\Curve.js" />
+    <Content Include="Assets\libs\three\src\extras\core\CurvePath.js" />
+    <Content Include="Assets\libs\three\src\extras\core\Font.js" />
+    <Content Include="Assets\libs\three\src\extras\core\Path.js" />
+    <Content Include="Assets\libs\three\src\extras\core\Shape.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\ArcCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\CatmullRomCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\ClosedSplineCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\CubicBezierCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\CubicBezierCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\EllipseCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\LineCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\LineCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\QuadraticBezierCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\QuadraticBezierCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\SplineCurve.js" />
+    <Content Include="Assets\libs\three\src\extras\curves\SplineCurve3.js" />
+    <Content Include="Assets\libs\three\src\extras\CurveUtils.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\BoxGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\CircleBufferGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\CircleGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\CylinderGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\DodecahedronGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\EdgesGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\ExtrudeGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\IcosahedronGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\LatheGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\OctahedronGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\ParametricGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\PlaneBufferGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\PlaneGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\PolyhedronGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\RingGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\ShapeGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\SphereBufferGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\SphereGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\TetrahedronGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\TextGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\TorusGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\TorusKnotGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\TubeGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\geometries\WireframeGeometry.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\ArrowHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\AxisHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\BoundingBoxHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\BoxHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\CameraHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\DirectionalLightHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\EdgesHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\FaceNormalsHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\GridHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\HemisphereLightHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\PointLightHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\SkeletonHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\SpotLightHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\VertexNormalsHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\helpers\WireframeHelper.js" />
+    <Content Include="Assets\libs\three\src\extras\objects\ImmediateRenderObject.js" />
+    <Content Include="Assets\libs\three\src\extras\objects\MorphBlendMesh.js" />
+    <Content Include="Assets\libs\three\src\extras\SceneUtils.js" />
+    <Content Include="Assets\libs\three\src\extras\ShapeUtils.js" />
+    <Content Include="Assets\libs\three\src\lights\AmbientLight.js" />
+    <Content Include="Assets\libs\three\src\lights\DirectionalLight.js" />
+    <Content Include="Assets\libs\three\src\lights\HemisphereLight.js" />
+    <Content Include="Assets\libs\three\src\lights\Light.js" />
+    <Content Include="Assets\libs\three\src\lights\LightShadow.js" />
+    <Content Include="Assets\libs\three\src\lights\PointLight.js" />
+    <Content Include="Assets\libs\three\src\lights\SpotLight.js" />
+    <Content Include="Assets\libs\three\src\loaders\AnimationLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\BinaryTextureLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\BufferGeometryLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\Cache.js" />
+    <Content Include="Assets\libs\three\src\loaders\CompressedTextureLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\CubeTextureLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\FontLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\ImageLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\JSONLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\Loader.js" />
+    <Content Include="Assets\libs\three\src\loaders\LoadingManager.js" />
+    <Content Include="Assets\libs\three\src\loaders\MaterialLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\ObjectLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\TextureLoader.js" />
+    <Content Include="Assets\libs\three\src\loaders\XHRLoader.js" />
+    <Content Include="Assets\libs\three\src\materials\LineBasicMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\LineDashedMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\Material.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshBasicMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshDepthMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshLambertMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshNormalMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshPhongMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MeshStandardMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\MultiMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\PointsMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\RawShaderMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\ShaderMaterial.js" />
+    <Content Include="Assets\libs\three\src\materials\SpriteMaterial.js" />
+    <Content Include="Assets\libs\three\src\math\Box2.js" />
+    <Content Include="Assets\libs\three\src\math\Box3.js" />
+    <Content Include="Assets\libs\three\src\math\Color.js" />
+    <Content Include="Assets\libs\three\src\math\Euler.js" />
+    <Content Include="Assets\libs\three\src\math\Frustum.js" />
+    <Content Include="Assets\libs\three\src\math\Interpolant.js" />
+    <Content Include="Assets\libs\three\src\math\interpolants\CubicInterpolant.js" />
+    <Content Include="Assets\libs\three\src\math\interpolants\DiscreteInterpolant.js" />
+    <Content Include="Assets\libs\three\src\math\interpolants\LinearInterpolant.js" />
+    <Content Include="Assets\libs\three\src\math\interpolants\QuaternionLinearInterpolant.js" />
+    <Content Include="Assets\libs\three\src\math\Line3.js" />
+    <Content Include="Assets\libs\three\src\math\Math.js" />
+    <Content Include="Assets\libs\three\src\math\Matrix3.js" />
+    <Content Include="Assets\libs\three\src\math\Matrix4.js" />
+    <Content Include="Assets\libs\three\src\math\Plane.js" />
+    <Content Include="Assets\libs\three\src\math\Quaternion.js" />
+    <Content Include="Assets\libs\three\src\math\Ray.js" />
+    <Content Include="Assets\libs\three\src\math\Sphere.js" />
+    <Content Include="Assets\libs\three\src\math\Spline.js" />
+    <Content Include="Assets\libs\three\src\math\Triangle.js" />
+    <Content Include="Assets\libs\three\src\math\Vector2.js" />
+    <Content Include="Assets\libs\three\src\math\Vector3.js" />
+    <Content Include="Assets\libs\three\src\math\Vector4.js" />
+    <Content Include="Assets\libs\three\src\objects\Bone.js" />
+    <Content Include="Assets\libs\three\src\objects\Group.js" />
+    <Content Include="Assets\libs\three\src\objects\LensFlare.js" />
+    <Content Include="Assets\libs\three\src\objects\Line.js" />
+    <Content Include="Assets\libs\three\src\objects\LineSegments.js" />
+    <Content Include="Assets\libs\three\src\objects\LOD.js" />
+    <Content Include="Assets\libs\three\src\objects\Mesh.js" />
+    <Content Include="Assets\libs\three\src\objects\Points.js" />
+    <Content Include="Assets\libs\three\src\objects\Skeleton.js" />
+    <Content Include="Assets\libs\three\src\objects\SkinnedMesh.js" />
+    <Content Include="Assets\libs\three\src\objects\Sprite.js" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk.js" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderLib.js" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\UniformsLib.js" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\UniformsUtils.js" />
+    <Content Include="Assets\libs\three\src\renderers\WebGLRenderer.js" />
+    <Content Include="Assets\libs\three\src\renderers\WebGLRenderTarget.js" />
+    <Content Include="Assets\libs\three\src\renderers\WebGLRenderTargetCube.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\plugins\LensFlarePlugin.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\plugins\SpritePlugin.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLBufferRenderer.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLCapabilities.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLExtensions.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLGeometries.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLIndexedBufferRenderer.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLLights.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLObjects.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLProgram.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLPrograms.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLProperties.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLShader.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLShadowMap.js" />
+    <Content Include="Assets\libs\three\src\renderers\webgl\WebGLState.js" />
+    <Content Include="Assets\libs\three\src\scenes\Fog.js" />
+    <Content Include="Assets\libs\three\src\scenes\FogExp2.js" />
+    <Content Include="Assets\libs\three\src\scenes\Scene.js" />
+    <Content Include="Assets\libs\three\src\textures\CanvasTexture.js" />
+    <Content Include="Assets\libs\three\src\textures\CompressedTexture.js" />
+    <Content Include="Assets\libs\three\src\textures\CubeTexture.js" />
+    <Content Include="Assets\libs\three\src\textures\DataTexture.js" />
+    <Content Include="Assets\libs\three\src\textures\Texture.js" />
+    <Content Include="Assets\libs\three\src\textures\VideoTexture.js" />
+    <Content Include="Assets\libs\three\src\Three.js" />
+    <Content Include="Assets\libs\three\src\Three.Legacy.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\alphamap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\alphamap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\alphatest_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\ambient_pars.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\aomap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\aomap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\beginnormal_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\begin_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\bsdfs.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\bumpmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\color_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\color_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\color_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\color_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\common.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\defaultnormal_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\displacementmap_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\displacementmap_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\emissivemap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\emissivemap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\envmap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\envmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\envmap_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\envmap_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\fog_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\fog_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lightmap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lightmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_lambert_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_pars.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_phong_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_phong_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_phong_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_phong_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_standard_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_standard_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\lights_template.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\linear_to_gamma_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\logdepthbuf_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\logdepthbuf_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\logdepthbuf_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\logdepthbuf_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\map_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\map_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\map_particle_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\map_particle_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\metalnessmap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\metalnessmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\morphnormal_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\morphtarget_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\morphtarget_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\normalmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\normal_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\project_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\roughnessmap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\roughnessmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\shadowmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\shadowmap_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\shadowmap_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\shadowmask_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\skinbase_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\skinning_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\skinning_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\skinnormal_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\specularmap_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\specularmap_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv2_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv2_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv2_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv_pars_fragment.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv_pars_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\uv_vertex.glsl" />
+    <Content Include="Assets\libs\three\src\renderers\shaders\ShaderChunk\worldpos_vertex.glsl" />
+    <Content Include="Assets\dist\3dmodel.json" />
+    <Content Include="Assets\dist\hfinal.json" />
+    <Content Include="Assets\dist\hmain.json" />
+    <Content Include="Assets\dist\housefin.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pages\common\app.js" />
+    <Content Include="Scripts\pages\common\derectives.js" />
+    <Content Include="Scripts\pages\controllers\controllers.js" />
+    <Content Include="Scripts\pages\controllers\routes.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Unity.Mvc4.README.txt" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XCL.Common\XCL.Common.csproj">
+      <Project>{c79f996a-687f-47db-9fc4-88bf69d259ae}</Project>
+      <Name>XCL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XCL.Core\XCL.Core.csproj">
+      <Project>{5c0e9373-f4e9-4f88-8638-85b79a9c470f}</Project>
+      <Name>XCL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XCL.Models\XCL.Models.csproj">
+      <Project>{0515cac6-3bc3-49e9-979a-91646b8bf0d0}</Project>
+      <Name>XCL.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XCL.Repository\XCL.Repository.csproj">
+      <Project>{6e25c0e1-ae1e-47f4-8817-d363bc90aa44}</Project>
+      <Name>XCL.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XCL.ViewModels\XCL.ViewModels.csproj">
+      <Project>{6b837b32-c19b-48e2-bba6-aa1885b08dc6}</Project>
+      <Name>XCL.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>46001</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:46001/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

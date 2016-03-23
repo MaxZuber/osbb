@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="WebGL-output">
+		</div>
+
+<script>
+    
+
+    window.onload = function () {
+        var
+            shapeObjectUrl = "/Assets/t/def.json",
+            scene = new THREE.Scene(),
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000),
+            renderer = new THREE.WebGLRenderer(),
+            loader = new THREE.JSONLoader();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        loader.load(shapeObjectUrl,
+            function (geometry, materials) {
+                console.log(geometry, materials);
+                var material = new THREE.MeshFaceMaterial(materials);
+                var mesh = new THREE.Mesh(geometry, material);
+                mesh.position.x = 0;
+                mesh.position.y = 0;
+                mesh.position.z = 0;
+                scene.add(mesh);
+                render();
+            });
+
+        var pointLight =
+    new THREE.AmbientLight(0x404040);
+
+          // add to the scene
+          scene.add(pointLight);
+
+        camera.position.z = 10;
+        camera.position.x = -10;
+        camera.position.y = 0;
+
+        var render = function () {
+
+
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        };
+
+    };
+
+
+
+    
+    //  $(function () {
+
+
+    //      // instantiate a loader
+
+
+
+
+
+    //      // set the scene size
+    //      var WIDTH = 400,
+    //        HEIGHT = 300;
+
+    //      // set some camera attributes
+    //      var VIEW_ANGLE = 45,
+    //        ASPECT = WIDTH / HEIGHT,
+    //        NEAR = 0.1,
+    //        FAR = 10000;
+
+    //      // get the DOM element to attach to
+    //      // - assume we've got jQuery to hand
+    //      var $container = $("#WebGL-output");
+
+    //      // create a WebGL renderer, camera
+    //      // and a scene
+    //      var renderer = new THREE.WebGLRenderer();
+    //      var camera =
+    //        new THREE.PerspectiveCamera(
+    //          VIEW_ANGLE,
+    //          ASPECT,
+    //          NEAR,
+    //          FAR);
+
+    //      var scene = new THREE.Scene();
+
+    //      // create the sphere's material
+    //      var sphereMaterial =
+    //        new THREE.MeshLambertMaterial(
+    //          {
+    //              color: 0xCC0000
+    //          });
+
+    //      // set up the sphere vars
+    //      var radius = 50,
+    //          segments = 16,
+    //          rings = 16;
+
+    //      // create a new mesh with
+    //      // sphere geometry - we will cover
+    //      // the sphereMaterial next!
+    //      var sphere = new THREE.Mesh(
+
+    //        new THREE.SphereGeometry(
+    //          radius,
+    //          segments,
+    //          rings),
+
+    //        sphereMaterial);
+
+
+
+    //      var pointLight =
+    //new THREE.AmbientLight(0x404040);
+
+    //      // add to the scene
+    //      scene.add(pointLight);
+
+
+
+
+
+    //      // add the sphere to the scene
+    //      scene.add(sphere);
+
+    //      // add the camera to the scene
+    //      scene.add(camera);
+
+    //      var loader = new THREE.JSONLoader();
+
+    //      // load a resource
+    //      loader.load(
+    //          // resource URL
+    //          '/Assets/t/def.json',
+    //          // Function when resource is loaded
+    //          function (geometry, materials) {
+    //              var material = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    //              var object = new THREE.Mesh(geometry, material);
+
+    //              scene.add(object);
+    //          }
+    //      );
+
+    //      // the camera starts at 0,0,0
+    //      // so pull it back
+    //      camera.position.z = 8000;
+
+    //      // start the renderer
+    //      renderer.setSize(WIDTH, HEIGHT);
+
+    //      // attach the render-supplied DOM element
+    //      $container.append(renderer.domElement);
+
+    //      // draw!
+    //      renderer.render(scene, camera);
+    //  });
+
+</script>
