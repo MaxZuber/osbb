@@ -31,6 +31,7 @@ namespace XCL.Core.Services.Impl
 
         public void AuthenticateRequest()
         {
+
             if (HttpContext.Current.User != null && HttpContext.Current.User.Identity != null && HttpContext.Current.User.Identity.IsAuthenticated == true)
             {
                 IIdentity identity = HttpContext.Current.User.Identity;
