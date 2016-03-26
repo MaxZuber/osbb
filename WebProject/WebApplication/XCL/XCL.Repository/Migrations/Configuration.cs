@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using XCL.Common.Enum;
+using XCL.Models.DbModels;
+
 namespace XCL.Repository.Migrations
 {
     using System;
@@ -26,6 +30,89 @@ namespace XCL.Repository.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
+            var entrance1 = new Entrance()
+            {
+                EntranceNumber = 1,
+                Flats = new List<Flat>(),
+                Sensors = new List<Sensor>()
+                {
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури води на вході в підїзд",
+                        InstallationPosition = SensorInstallationPositionType.Input
+                    },
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури повітря на вулиці",
+                        InstallationPosition = SensorInstallationPositionType.Outer
+                    },
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури в підїзд",
+                        InstallationPosition = SensorInstallationPositionType.Flor
+                    }
+                }
+            };
+
+            var entrance2 = new Entrance()
+            {
+                EntranceNumber = 2,
+                Flats = new List<Flat>(),
+                Sensors = new List<Sensor>()
+                {
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури води на вході в підїзд",
+                        InstallationPosition = SensorInstallationPositionType.Input
+                    },
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури повітря на вулиці",
+                        InstallationPosition = SensorInstallationPositionType.Outer
+                    },
+                    new Sensor()
+                    {
+                        Dimension = "°C",
+                        Description = "Температури в підїзд",
+                        InstallationPosition = SensorInstallationPositionType.Flor
+                    }
+                }
+            };
+
+            for (var i = 1; i <= 36; ++i)
+            {
+                entrance1.Flats.Add(new Flat()
+                {
+                    FlatNumber = i
+                });
+
+                entrance2.Flats.Add(new Flat()
+                {
+                    FlatNumber = i + 36
+                });
+            }
+
+            var building = new BuildingInfo
+            {
+                StreetName = "Вербова",
+                StreetNumber = 38,
+                Entrances = new List<Entrance>()
+                {
+                    entrance1,
+                    entrance2
+                }
+            };
+
+
+            context.BuildingInfos.AddOrUpdate(x => new {x.StreetName, x.StreetNumber},
+                building);
         }
     }
 }

@@ -10,5 +10,13 @@ namespace XCL.Models.DbModels
         public string PhoneNumber { get; set; }
         public string VerificationToken { get; set; }
         public string Password { get; set; }
+        public bool EmailIsConfirmed { get; set; }
+        public bool PhoneNumberIsConfirmed { get; set; }
+        public bool AccountIsVerified { get; set; }
+        public bool SendEmailNotification { get; set; }
+        public bool SendPhoneNotification { get; set; }
+
+        public int FlatId { get; set; }
+        public Flat Flat { get; set; }
     }
 }

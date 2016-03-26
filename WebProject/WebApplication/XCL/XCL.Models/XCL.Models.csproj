@@ -42,9 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbModels\Account.cs" />
+    <Compile Include="DbModels\BuildingInfo.cs" />
+    <Compile Include="DbModels\Entrance.cs" />
+    <Compile Include="DbModels\Flat.cs" />
+    <Compile Include="DbModels\Sensor.cs" />
+    <Compile Include="DbModels\SensorValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\XCL.Common\XCL.Common.csproj">
+      <Project>{C79F996A-687F-47DB-9FC4-88BF69D259AE}</Project>
+      <Name>XCL.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
