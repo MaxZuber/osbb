@@ -26,6 +26,8 @@ namespace XCL.Repository.DataContext
             modelBuilder.Entity<Account>().Property(x => x.PhoneNumber).HasMaxLength(13);
             modelBuilder.Entity<Account>().Property(x => x.Password).HasMaxLength(50);
             modelBuilder.Entity<Account>().Property(x => x.VerificationToken).HasMaxLength(50);
+            modelBuilder.Entity<Account>().Property(x => x.FirstName).HasMaxLength(50);
+            modelBuilder.Entity<Account>().Property(x => x.LastName).HasMaxLength(50);
 
             modelBuilder.Entity<BuildingInfo>().Property(x => x.StreetName).HasMaxLength(150);
 
@@ -54,10 +56,11 @@ namespace XCL.Repository.DataContext
 
             modelBuilder.Entity<Flat>()
                 .HasMany(x => x.Accounts)
-                .WithRequired(x => x.Flat)
+                .WithOptional(x => x.Flat)
                 .HasForeignKey(x => x.FlatId);
 
-            modelBuilder.Entity<SensorValues>().HasKey(x => x.DateTime);
+            modelBuilder.Entity<SensorValues>().HasKey(x => new { x.DateTime, x.SensorId});
+
 
             base.OnModelCreating(modelBuilder);
         }

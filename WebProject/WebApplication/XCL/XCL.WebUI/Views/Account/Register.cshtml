@@ -3,8 +3,10 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="col-xs-12">
+    <h2>Реєстрація</h2>
+</div>
 
-<h2>Register</h2>
 
 <div ng-controller="registerController as rc">
     <form novalidate name="registerForm" action=@Url.Action("Register", "Account") method="post">

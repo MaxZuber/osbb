@@ -3,20 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.WebUI", "XCL.WebUI\XCL.WebUI.csproj", "{34FF0DE2-46CE-4F87-8F5B-D5EB062F118B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.WebUI", "XCL.WebUI\OSBB.WebUI.csproj", "{34FF0DE2-46CE-4F87-8F5B-D5EB062F118B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6E25C0E1-AE1E-47F4-8817-D363BC90AA44} = {6E25C0E1-AE1E-47F4-8817-D363BC90AA44}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.Repository", "XCL.Repository\XCL.Repository.csproj", "{6E25C0E1-AE1E-47F4-8817-D363BC90AA44}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.Repository", "XCL.Repository\OSBB.Repository.csproj", "{6E25C0E1-AE1E-47F4-8817-D363BC90AA44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.Models", "XCL.Models\XCL.Models.csproj", "{0515CAC6-3BC3-49E9-979A-91646B8BF0D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.Models", "XCL.Models\OSBB.Models.csproj", "{0515CAC6-3BC3-49E9-979A-91646B8BF0D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.Common", "XCL.Common\XCL.Common.csproj", "{C79F996A-687F-47DB-9FC4-88BF69D259AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.Common", "XCL.Common\OSBB.Common.csproj", "{C79F996A-687F-47DB-9FC4-88BF69D259AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.Core", "XCL.Core\XCL.Core.csproj", "{5C0E9373-F4E9-4F88-8638-85B79A9C470F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.Core", "XCL.Core\OSBB.Core.csproj", "{5C0E9373-F4E9-4F88-8638-85B79A9C470F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCL.ViewModels", "XCL.ViewModels\XCL.ViewModels.csproj", "{6B837B32-C19B-48E2-BBA6-AA1885B08DC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSBB.ViewModels", "XCL.ViewModels\OSBB.ViewModels.csproj", "{6B837B32-C19B-48E2-BBA6-AA1885B08DC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

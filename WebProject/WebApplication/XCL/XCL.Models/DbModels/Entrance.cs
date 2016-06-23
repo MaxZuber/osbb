@@ -10,6 +10,7 @@ namespace XCL.Models.DbModels
         public int Id { get; set; }
         public int BuildingId { get; set; }
         public int EntranceNumber { get; set; }
+        public string FsaPath { get; set; }
         public BuildingInfo BuildingInfo { get; set; }
         public ICollection<Flat> Flats { get; set; }
         public ICollection<Sensor> Sensors { get; set; }

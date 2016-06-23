@@ -168,11 +168,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BuildingController.cs" />
+    <Compile Include="Controllers\Dashboard.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IoC\UnityResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -392,11 +396,21 @@
     <Content Include="Assets\libs\three\src\textures\VideoTexture.js" />
     <Content Include="Assets\libs\three\src\Three.js" />
     <Content Include="Assets\libs\three\src\Three.Legacy.js" />
+    <Content Include="Content\angular-chart.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FSA_p1.png" />
+    <Content Include="Content\FSA_p2.png" />
+    <Content Include="Content\visal_2.png" />
+    <Content Include="Content\visual_kotel.png" />
+    <Content Include="Content\visulaisation.html" />
+    <Content Include="Content\v_detail.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-chart.min.js" />
+    <Content Include="Scripts\angular-constants.js" />
+    <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -487,6 +501,8 @@
     <Content Include="Assets\dist\hfinal.json" />
     <Content Include="Assets\dist\hmain.json" />
     <Content Include="Assets\dist\housefin.json" />
+    <None Include="Properties\PublishProfiles\osbb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\osbb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -497,8 +513,11 @@
     <Content Include="Scripts\pages\controllers\routes.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-1.3.1.min.js" />
     <Content Include="Unity.Mvc4.README.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -517,6 +536,14 @@
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Views\Dashboard\GeneralInfo.cshtml" />
+    <Content Include="Views\Dashboard\Monitoring.cshtml" />
+    <Content Include="Views\Dashboard\EditGeneraInfo.cshtml" />
+    <Content Include="Views\Shared\_GeneralInfoMenuPartial.cshtml" />
+    <Content Include="Views\Dashboard\Visualisation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -526,25 +553,25 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XCL.Common\XCL.Common.csproj">
+    <ProjectReference Include="..\XCL.Common\OSBB.Common.csproj">
       <Project>{c79f996a-687f-47db-9fc4-88bf69d259ae}</Project>
-      <Name>XCL.Common</Name>
+      <Name>OSBB.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XCL.Core\XCL.Core.csproj">
+    <ProjectReference Include="..\XCL.Core\OSBB.Core.csproj">
       <Project>{5c0e9373-f4e9-4f88-8638-85b79a9c470f}</Project>
-      <Name>XCL.Core</Name>
+      <Name>OSBB.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XCL.Models\XCL.Models.csproj">
+    <ProjectReference Include="..\XCL.Models\OSBB.Models.csproj">
       <Project>{0515cac6-3bc3-49e9-979a-91646b8bf0d0}</Project>
-      <Name>XCL.Models</Name>
+      <Name>OSBB.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XCL.Repository\XCL.Repository.csproj">
+    <ProjectReference Include="..\XCL.Repository\OSBB.Repository.csproj">
       <Project>{6e25c0e1-ae1e-47f4-8817-d363bc90aa44}</Project>
-      <Name>XCL.Repository</Name>
+      <Name>OSBB.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XCL.ViewModels\XCL.ViewModels.csproj">
+    <ProjectReference Include="..\XCL.ViewModels\OSBB.ViewModels.csproj">
       <Project>{6b837b32-c19b-48e2-bba6-aa1885b08dc6}</Project>
-      <Name>XCL.ViewModels</Name>
+      <Name>OSBB.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

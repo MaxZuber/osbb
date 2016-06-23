@@ -20,6 +20,11 @@ namespace XCL.Core.Services.Impl
             _cryptService = cryptService;
         }
 
+        public Account GetUserAccountById(int  id)
+        {
+            return _userRepository.GetUserById(id);
+        }
+
         public bool IsUserExist(string email)
         {
             return _userRepository.GetUserByEmail(email) != null;
@@ -29,10 +34,15 @@ namespace XCL.Core.Services.Impl
         {
             var result = new RequestResult<Account>();
 
-            if (string.IsNullOrEmpty(account.Password) || string.IsNullOrEmpty(account.Email) || IsUserExist(account.Email))
+            if (string.IsNullOrEmpty(account.Password) || string.IsNullOrEmpty(account.Email))
             {
                 result.Status = RequestStatus.Error;
                 result.Message = "Помилка при реєстрації";
+            }
+            else if (IsUserExist(account.Email))
+            {
+                result.Status = RequestStatus.Error;
+                result.Message = "Користувач з таким емейлом вже існує";
             }
             else
             {
@@ -47,6 +57,35 @@ namespace XCL.Core.Services.Impl
                 {
                     result.Status = RequestStatus.Error;
                     result.Message = "Критична помилка";
+                }
+            }
+
+            return result;
+        }
+
+        public RequestResult<Account> UpdateUserAccount(Account account)
+        {
+            var result = new RequestResult<Account>();
+
+            if (string.IsNullOrEmpty(account.Email)
+                || string.IsNullOrEmpty(account.FirstName)
+                || string.IsNullOrEmpty(account.LastName)
+                || account.FlatId <= 0)
+            {
+                result.Status = RequestStatus.Error;
+                result.Message = "Відсутні обовязкові поля";
+            }
+            else
+            {
+                try
+                {
+                    result.Obj = _userRepository.UpdateAccount(account);
+                    result.Status =  RequestStatus.Success;
+                }
+                catch (Exception ex)
+                {
+                    result.Status = RequestStatus.Error;
+                    result.Message = "Помилка під час збереження";
                 }
             }
 

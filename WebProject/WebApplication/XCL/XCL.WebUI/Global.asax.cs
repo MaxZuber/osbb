@@ -18,12 +18,12 @@ namespace XCL.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrapper.Initialise();
+            Bootstrapper.Initialise(GlobalConfiguration.Configuration);
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-           Ioc.Get<ISecurityService>().AuthenticateRequest();
+           Ioc.Get<ISecurityService>().PostAuthRequest();
         }
     }
 }

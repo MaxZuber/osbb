@@ -16,7 +16,10 @@ namespace XCL.Models.DbModels
         public bool SendEmailNotification { get; set; }
         public bool SendPhoneNotification { get; set; }
 
-        public int FlatId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public int? FlatId { get; set; }
         public Flat Flat { get; set; }
     }
 }

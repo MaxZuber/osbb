@@ -1,14 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using XCL.Core.Services.Abstract;
 
 namespace XCL.WebUI.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+
+        private readonly IRandomValuesService _randomValuesService;
+        private readonly IEntranceService entranceService;
+
+        public ValuesController(IRandomValuesService randomValuesService, IEntranceService entranceService)
         {
-            return new string[] { "value1", "value2" };
+            _randomValuesService = randomValuesService;
+            this.entranceService = entranceService;
+        }
+
+        // GET api/values
+        public HttpResponseMessage Get(DateTime date, int? entranceId = null)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, entranceService.GetEntranceSensorValues(date, entranceId));
         }
 
         // GET api/values/5

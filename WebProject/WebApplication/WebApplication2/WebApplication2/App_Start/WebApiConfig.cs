@@ -1,14 +1,16 @@
-﻿using System.Net.Http.Formatting;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
-namespace XCL.WebUI
+namespace WebApplication2
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            RegisterFormatters(config);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -17,13 +19,6 @@ namespace XCL.WebUI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-        }
-
-        private static void RegisterFormatters(HttpConfiguration config)
-        {
-            config.Formatters.Clear();
-            config.Formatters.Add(new JsonMediaTypeFormatter());
-            config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None;
         }
     }
 }

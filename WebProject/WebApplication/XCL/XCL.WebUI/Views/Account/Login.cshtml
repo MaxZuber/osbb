@@ -3,15 +3,22 @@
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="col-xs-12">
+    <h2>Вхід в систему</h2>
+</div>
 
-<h2>Login</h2>
 <div ng-controller="loginController as lc">
     <form novalidate name="loginForm" method="POST" action=@Url.Action("Login", "Account")>
-
+        @if (Model.InValidLogin.HasValue && Model.InValidLogin.Value)
+        {
+            <div class="col-xs-12 login-invalid">
+                Логін чи пароль не вірний
+            </div>
+        }
         <div class="col-xs-12">
             <div class="form-group">
                 <div>
-                    <input type="text" name="Email" class="form-control" placeholder="Емейл" ng-model="lc.email" required ng-minlength="3" ng-maxlength="32" />
+                    <input type="text" name="Email" class="form-control" placeholder="Емейл" ng-model="lc.email" required ng-minlength="3" ng-maxlength="32"/>
                 </div>
                 <div>
                     @Html.ValidationMessageFor(x => x.Email)
@@ -22,7 +29,7 @@
         <div class="col-xs-12">
             <div class="form-group">
                 <div>
-                    <input type="password" name="Password" class="form-control" placeholder="Пароль" ng-model="lc.password" required ng-minlength="3" ng-maxlength="32" />
+                    <input type="password" name="Password" class="form-control" placeholder="Пароль" ng-model="lc.password" required ng-minlength="3" ng-maxlength="32"/>
                 </div>
                 <div>@Html.ValidationMessageFor(x => x.Password)</div>
             </div>

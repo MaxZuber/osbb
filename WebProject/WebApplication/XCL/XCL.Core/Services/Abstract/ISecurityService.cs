@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using XCL.Models.DbModels;
+using XCL.Common.Models;
 
 namespace XCL.Core.Services.Abstract
 {
@@ -12,5 +9,10 @@ namespace XCL.Core.Services.Abstract
     {
         bool Login(string username, string password);
         void AuthenticateRequest();
+
+        bool AuthenticateUser(string userEmail);
+        void SignOutUser();
+        void UpdateUser(OsbbSerializeModel serializeModel);
+        void PostAuthRequest();
     }
 }

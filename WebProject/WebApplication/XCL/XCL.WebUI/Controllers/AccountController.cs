@@ -25,22 +25,29 @@ namespace XCL.WebUI.Controllers
 
         public ActionResult Login()
         {
-            var vm = new LoginViewModel();
+            var vm = new LoginViewModel()
+            {
+                InValidLogin = null
+            };
             return View(vm);
         }
 
         [HttpPost]
         public ActionResult Login(LoginViewModel loginViewModel)
         {
-
             if (_uSecurityService.Login(loginViewModel.Email, loginViewModel.Password))
             {
-                FormsAuthentication.SetAuthCookie(loginViewModel.Email, loginViewModel.IsPersist);
-                ControllerContext.HttpContext.User = new GenericPrincipal(new GenericIdentity(loginViewModel.Email), null);
+                _uSecurityService.AuthenticateUser(loginViewModel.Email);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
-             return View(loginViewModel);
+            else
+            {
+                loginViewModel.InValidLogin = true;
+            }
+
+
+            return View(loginViewModel);
         }
 
         public ActionResult Register()
@@ -59,7 +66,7 @@ namespace XCL.WebUI.Controllers
 
                 if (result.Status == RequestStatus.Success)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {

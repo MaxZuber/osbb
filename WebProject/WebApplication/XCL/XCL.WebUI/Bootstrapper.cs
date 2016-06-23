@@ -1,3 +1,4 @@
+using System.Web.Http;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc4;
@@ -6,16 +7,19 @@ using XCL.Core.Services.Abstract;
 using XCL.Core.Services.Impl;
 using XCL.Repository.Repositories.Abstract;
 using XCL.Repository.Repositories.Impl;
+using XCL.WebUI.IoC;
 
 namespace XCL.WebUI
 {
     public static class Bootstrapper
     {
-        public static IUnityContainer Initialise()
+        public static IUnityContainer Initialise(HttpConfiguration httpConfig)
         {
             var container = BuildUnityContainer();
 
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            var dependencyResolver = new UnityResolver(container);
+            DependencyResolver.SetResolver(dependencyResolver);
+            httpConfig.DependencyResolver = dependencyResolver;
 
             return container;
         }
@@ -45,12 +49,19 @@ namespace XCL.WebUI
             container.RegisterType<IEmailService, EmailService>();
             container.RegisterType<ICryptService, CryptService>();
             container.RegisterType<ISecurityService, SecurityService>();
+            container.RegisterType<IBuildingService, BuildingService>();
+            container.RegisterType<IRandomValuesService, RandomValuesService>();
+            container.RegisterType<ISensorService, SensorService>();
+            container.RegisterType<IEntranceService, EntranceService>();
 
         }
 
         public static void RegisterRepositories(IUnityContainer container)
         {
             container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IBuildingRepository, BuildingRepository>();
+            container.RegisterType<ISensorRepositoy, SensorRepositoy>();
+            container.RegisterType<IRepository, Repository.Repositories.Impl.Repository>();
         }
     }
 }
